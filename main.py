@@ -34,6 +34,10 @@ print("Indonesia has a population of 273.8 million people and is also characteri
 
 input("Press enter to continue.\n")
 
+print("How do various demographic factors, such as climate, cultural diversity, religion, median age, average household size, income, and average age of childbearing, differ between the Philippines and Indonesia? How might these differences influence population growth trends in both countries?\n")
+
+input("Press enter to continue.\n")
+
 print("The median age in the Philippines is 25 years old, while the median age in Indonesia is 29.9 years. The Philippines have a higher average birth rate, at 2.78 births per woman, than Indonesia, which has 2.19 births per woman.\n")
 
 input("Press enter to continue.\n")
@@ -57,23 +61,29 @@ y1 = oneCountryData["RH_children_born_mean"]
 z1 = oneCountryData["year"]
 
 # ax.scatter(x="DM_age_mean", y="RH_children_born_mean", z="year", color="red", data=oneCountryData)
-ax.scatter(x1, y1, z1, color="red")
+ax.scatter(x1, y1, z1, color="red", label="Indonesia")
 
 x2 = twoCountryData["DM_age_mean"]
 y2 = twoCountryData["RH_children_born_mean"]
 z2 = twoCountryData["year"]
 
 # ax.scatter(x="DM_age_mean", y="RH_children_born_mean", z="year", color="blue", data=twoCountryData)
-ax.scatter(x2, y2, z2, color="blue")
+ax.scatter(x2, y2, z2, color="blue", label="Philippines")
 
 # add a title to the plot
-plt.title("Number of Children Born over Age of Women")
+plt.title("Number of Children Born over Age of Women per Year")
 
-#Label the x-axis
-plt.xlabel("Average age of women")
+# label the x-axis
+ax.set_xlabel("Average age of women")
 
 # label the y-axis
-plt.ylabel("Average number of children ever born")
+ax.set_ylabel("Average number of children ever born")
+
+# label the z-axis
+ax.set_zlabel("Year")
+
+# set the legend
+ax.legend()
 
 # cmap = plt.get_cmap("viridis")
 # plt.set_cmap(cmap)
